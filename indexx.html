@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daniel Kenneth Kuria Kimani - Live Profile</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --accent-color: #2563eb;
+      --accent-hover: #1d4ed8;
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #334155;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    [data-theme="dark"] {
+      --primary-color: #f8fafc;
+      --accent-color: #3b82f6;
+      --accent-hover: #60a5fa;
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --border-color: #334155;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    
+    header {
+      position: sticky;
+      top: 0;
+      background-color: var(--card-bg);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+      box-shadow: var(--shadow);
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent-color);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: var(--accent-color);
+    }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      color: var(--text-main);
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    
+    .hero {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      padding: 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
+      margin-bottom: 2rem;
+    }
+
+    .profile-img-container {
+      position: relative;
+    }
+
+    .profile-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--accent-color);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-details {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .hero-details h1 {
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-details h3 {
+      font-size: 1.1rem;
+      color: var(--accent-color);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .contact-info div {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .objective {
+      background: var(--bg-color);
+      padding: 1rem;
+      border-left: 4px solid var(--accent-color);
+      border-radius: 4px;
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+
+  
+    .grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero { text-align: center; justify-content: center; }
+      .contact-info { justify-content: center; }
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      color: var(--primary-color);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 0.5rem;
+    }
+
+    .section-title i {
+      color: var(--accent-color);
+    }
+
+    
+    .timeline {
+      position: relative;
+      border-left: 2px solid var(--border-color);
+      padding-left: 1.5rem;
+      margin-left: 0.5rem;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -1.95rem;
+      top: 0.25rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: var(--accent-color);
+    }
+
+    .timeline-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .timeline-company {
+      color: var(--accent-color);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .timeline-date {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-list {
+      list-style-type: disc;
+      padding-left: 1.2rem;
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+
+    
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-badge {
+      background-color: var(--bg-color);
+      border: 1px solid var(--border-color);
+      padding: 0.5rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    
+    .details-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .details-table td {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .details-table td:first-child {
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    
+    .btn {
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: var(--accent-hover);
+    }
+
+    
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+
+    .modal-content {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .close-btn {
+      float: right;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  
+  <header>
+    <div class="nav-container">
+      <div class="logo">DKK</div>
+      <nav>
+        <ul>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#details">Details</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" id="themeToggle"><i class="fa-solid fa-moon"></i></button>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Hero / Profile Card -->
+    <section class="hero">
+      <div class="profile-img-container">
+        <!-- Placeholder image source replacing local document picture -->
+        <img src="profile picture.png" alt="Daniel Kenneth Kuria Kimani Profile Picture" class="profile-img">
+      </div>
+      <div class="hero-details">
+        <h1>Daniel Kenneth Kuria Kimani</h1>
+        <h3>Professional Staff Driver & Motor Vehicle Mechanic</h3>
+        <div class="contact-info">
+          <div><i class="fa-solid fa-location-dot"></i> Nairobi, Kenya</div>
+          <div><i class="fa-solid fa-phone"></i> +254 704 633 112</div>
+          <div><i class="fa-solid fa-envelope"></i> Kdanielkenneth@gmail.com</div>
+        </div>
+        <div class="objective">
+          <strong>Career Objective:</strong> To work in a challenging environment that fully exploits my potential while offering an opportunity for career advancement.
+        </div>
+      </div>
+    </section>
+
+    <div class="grid">
+      
+      <main>
+       
+        <section id="experience" class="card">
+          <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Work Experience</h2>
+          <div class="timeline">
+
+            <div class="timeline-item">
+              <div class="timeline-title">Delivery Driver</div>
+              <div class="timeline-company">Carson Logistics — Doha</div>
+              <div class="timeline-date">Jul 2022 – Jan 2023</div>
+              <ul class="timeline-list">
+                <li>Loaded and unloaded products from delivery trucks.</li>
+                <li>Performed routine vehicle inspections.</li>
+                <li>Maintained the vehicle in a clean and safe condition.</li>
+                <li>Followed local and state driving laws and road regulations.</li>
+                <li>Collected payments from customers.</li>
+              </ul>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-title">Staff Driver</div>
+              <div class="timeline-company">Autoz Company — Doha</div>
+              <div class="timeline-date">Oct 2021 – Jun 2022</div>
+              <ul class="timeline-list">
+                <li>Safely transported company staff and various products.</li>
+                <li>Assisted with loading and offloading staff luggage.</li>
+                <li>Kept the company vehicle clean and properly maintained.</li>
+              </ul>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-title">Staff Driver</div>
+              <div class="timeline-company">Sankara Hotel — Nairobi</div>
+              <div class="timeline-date">Feb 2020 – Aug 2021</div>
+              <ul class="timeline-list">
+                <li>Ensured the company vehicle was always fueled and ready for use.</li>
+                <li>Arranged for vehicle repairs as needed and kept mileage records.</li>
+                <li>Transported clients and packages to and from destinations.</li>
+                <li>Fulfilled administrative needs such as pick-ups and drop-offs.</li>
+              </ul>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-title">Staff Driver</div>
+              <div class="timeline-company">Aga Khan Hospital — Nairobi</div>
+              <div class="timeline-date">Jul 2019 – Jan 2020</div>
+              <ul class="timeline-list">
+                <li>Picked up clients and drove them safely to destinations.</li>
+                <li>Mapped out driving routes to ensure timely arrival.</li>
+                <li>Maintained a high degree of professionalism and customer service.</li>
+              </ul>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-title">Mechanic</div>
+              <div class="timeline-company">Roytech Garage — Nairobi</div>
+              <div class="timeline-date">Dec 2018 – Jun 2019</div>
+              <ul class="timeline-list">
+                <li>Built and assembled machines or mechanical components.</li>
+                <li>Inspected engines/transmissions and ran diagnostic tests.</li>
+                <li>Conducted repairs aimed at maximum vehicle reliability.</li>
+              </ul>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="card">
+          <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Education & Training</h2>
+          <div class="timeline">
+
+            <div class="timeline-item">
+              <div class="timeline-title">NITA Grade III, Motor Vehicle Mechanic</div>
+              <div class="timeline-company">National Industrial Training Authority (NITA)</div>
+              <div class="timeline-date">May – Dec 2018</div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-title">Computer Packages & Computerized Accounting</div>
+              <div class="timeline-company">Royal African Institute</div>
+              <div class="timeline-date">Sep – Nov 2017</div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-title">Driving Certificate</div>
+              <div class="timeline-company">Sony Driving School</div>
+              <div class="timeline-date">Mar – May 2017</div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-title">KCSE (Secondary Education)</div>
+              <div class="timeline-company">Koimbi Boys High School</div>
+              <div class="timeline-date">2013 – 2016</div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-title">KCPE (Primary Education)</div>
+              <div class="timeline-company">Marura Primary School</div>
+              <div class="timeline-date">2004 – 2012</div>
+            </div>
+
+          </div>
+        </section>
+      </main>
+
+      
+      <aside>
+       
+        <section id="skills" class="card">
+          <h2 class="section-title"><i class="fa-solid fa-gears"></i> Skills & Abilities</h2>
+          <div class="skills-container">
+            <span class="skill-badge"><i class="fa-solid fa-check"></i> Professional Driving</span>
+            <span class="skill-badge"><i class="fa-solid fa-check"></i> Vehicle Maintenance</span>
+            <span class="skill-badge"><i class="fa-solid fa-check"></i> Diagnostics & Diagnostics</span>
+            <span class="skill-badge"><i class="fa-solid fa-check"></i> Interpersonal Skills</span>
+            <span class="skill-badge"><i class="fa-solid fa-check"></i> Time Management</span>
+            <span class="skill-badge"><i class="fa-solid fa-check"></i> Adaptability</span>
+          </div>
+        </section>
+
+        
+        <section id="details" class="card">
+          <h2 class="section-title"><i class="fa-solid fa-user"></i> Personal Details</h2>
+          <table class="details-table">
+            <tr><td>Gender</td><td>Male</td></tr>
+            <tr><td>Nationality</td><td>Kenyan</td></tr>
+            <tr><td>Marital Status</td><td>Single</td></tr>
+            <tr><td>Religion</td><td>Christian</td></tr>
+            <tr><td>Height</td><td>5'7"</td></tr>
+            <tr><td>Languages</td><td>English, Kiswahili</td></tr>
+          </table>
+        </section>
+
+        
+        <section class="card">
+          <h2 class="section-title"><i class="fa-solid fa-heart"></i> Hobbies</h2>
+          <div class="skills-container">
+            <span class="skill-badge"><i class="fa-solid fa-film"></i> Documentaries</span>
+            <span class="skill-badge"><i class="fa-solid fa-plane"></i> Travelling</span>
+            <span class="skill-badge"><i class="fa-solid fa-users"></i> Socializing</span>
+          </div>
+        </section>
+
+        <!-- Reference Request Card -->
+        <section class="card" style="text-align: center;">
+          <h2 class="section-title" style="justify-content: center;"><i class="fa-solid fa-file-signature"></i> Referees</h2>
+          <p style="font-size: 0.9rem; margin-bottom: 1rem; color: var(--text-muted);">Available upon request.</p>
+          <button class="btn" onclick="openModal()">Request Reference</button>
+        </section>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Modal for Reference Requests -->
+  <div class="modal" id="refModal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h3>Reference Request</h3>
+      <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">
+        Please contact <strong>Kdanielkenneth@gmail.com</strong> or call <strong>+254 704 633 112</strong> to request professional references for Daniel Kimani.
+      </p>
+    </div>
+  </div>
+
+  <script>
+   
+    const themeToggleBtn = document.getElementById('themeToggle');
+    themeToggleBtn.addEventListener('click', () => {
+      const currentTheme = document.body.getAttribute('data-theme');
+      if (currentTheme === 'dark') {
+        document.body.removeAttribute('data-theme');
+        themeToggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+      } else {
+        document.body.setAttribute('data-theme', 'dark');
+        themeToggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+      }
+    });
+
+    function openModal() {
+      document.getElementById('refModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('refModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('refModal');
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
